@@ -1,4 +1,4 @@
-# ObjLoader
+# ObjParser
 
 Parse a 3D obj file to a ruby data structure.
 Can compute tangent per vertex.

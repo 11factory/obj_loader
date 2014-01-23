@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = ObjLoader::VERSION
   spec.authors       = ["Laurent Cobos"]
   spec.email         = ["laurent@11factory.fr"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
+  spec.summary       = %q{3D obj file parser.}
+  spec.description   = %q{Parse a 3D obj file to a ruby data structure. Can compute tangent per vertex. Can merge vertice, normals, and textures indexes into a single index for OpenGL use case.}
   spec.homepage      = ""
   spec.license       = "MIT"
 
