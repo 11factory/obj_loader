@@ -1,10 +1,10 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'obj_loader/version'
+require 'obj_parser/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "obj_loader"
+  spec.name          = "obj_parser"
   spec.version       = ObjLoader::VERSION
   spec.authors       = ["Laurent Cobos"]
   spec.email         = ["laurent@11factory.fr"]

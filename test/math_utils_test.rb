@@ -1,5 +1,5 @@
 require 'test/unit'
-require 'obj_loader'
+require 'obj_parser'
 
 class ObjLoader::MathUtilsTest < Test::Unit::TestCase
   
