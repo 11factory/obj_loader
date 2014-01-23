@@ -1,5 +1,6 @@
 require "obj_loader/version"
 require "obj_loader/obj_parser"
+require "obj_loader/single_indexed_obj"
 require "obj_loader/point"
 
 module ObjLoader
