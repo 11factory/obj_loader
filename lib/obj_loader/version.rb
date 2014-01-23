@@ -1,0 +1,3 @@
+module ObjLoader
+  VERSION = "0.0.1"
+end
