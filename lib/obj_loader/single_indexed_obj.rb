@@ -70,16 +70,13 @@ module ObjLoader
       self.detailed_vertice = self.vertice.map {|vertex| Point.new(vertex.data)}
     	self.vertice_indexes.each_with_index do |vertex_index, index|
     		vertex = self.detailed_vertice[vertex_index]
-    		if(self.normals.any? && self.normals_indexes[index])
-    			normal_candid = self.normals[self.normals_indexes[index]] 
-    			vertex.normals << normal_candid unless vertex.normals.include?(normal_candid)
-    		end
-    		if(self.textures.any? && self.textures_indexes[index])
-    			texture_candid = self.textures[self.textures_indexes[index]]
-    			vertex.textures << texture_candid unless vertex.textures.include?(texture_candid)
-    		end
-    	end
-      
+        [:normals, :textures, :tangents].each do |element|
+      		if(self.send(element).any? && self.send("#{element}_indexes")[index])
+      			candid = self.send(element)[self.send("#{element}_indexes")[index]] 
+      			vertex.send(element) << candid unless vertex.send(element).include?(candid)
+      		end
+        end
+    	end      
     end
     
   end
