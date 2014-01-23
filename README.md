@@ -1,6 +1,8 @@
 # ObjLoader
 
-TODO: Write a gem description
+Parse a 3D obj file to a ruby data structure.
+Can compute tangent per vertex.
+Can merge vertice, normals, and textures indexes into a single index for OpenGL use case.
 
 ## Installation
 
@@ -18,7 +20,18 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Sample to parse an obj file, generate tangents and transform to a single indexed 3D model.
+
+  @parser = ObjLoader::ObjParser.new
+  obj = @parser.load(File.open("/Users/lcobos/development/ios/OpenGL-4/models/cube.obj"))
+  obj.compute_tangents
+  obj = ObjLoader::SingleIndexedObj.build_with_obj(obj)
+  puts obj.vertice.map(&:data).join(",")
+  puts obj.normals.map(&:data).join(",")
+  puts obj.textures.map(&:data).join(",")
+  puts obj.tangents.map(&:data).join(",")
+  puts obj.indexes.join(",")
+  
 
 ## Contributing
 
