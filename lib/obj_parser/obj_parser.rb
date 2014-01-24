@@ -1,7 +1,7 @@
 require_relative 'obj'
 require_relative 'point'
 
-module ObjLoader
+module ObjParser
   class ObjParser
     
     VERTEX_LINE_ID = 'v'

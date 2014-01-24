@@ -6,6 +6,7 @@ Can merge vertice, normals, and textures indexes into a single index for OpenGL 
 
 - Support triangle primitives
 - Support only one model per obj file
+- Did not support materials
 
 ## Installation
 
@@ -25,10 +26,10 @@ Or install it yourself as:
 
 Sample to parse an obj file, generate tangents and transform to a single indexed 3D model.
 
-    @parser = ObjLoader::ObjParser.new
+    @parser = ObjParser::ObjParser.new
     obj = @parser.load(File.open("/Users/lcobos/development/ios/OpenGL-4/models/cube.obj"))
     obj.compute_tangents
-    obj = ObjLoader::SingleIndexedObj.build_with_obj(obj)
+    obj = ObjParser::SingleIndexedObj.build_with_obj(obj)
     
     puts obj.vertice.map(&:data).join(",")
     puts obj.normals.map(&:data).join(",")

@@ -1,4 +1,4 @@
-module ObjLoader
+module ObjParser
   class Face
     attr_accessor :normals
     attr_accessor :vertice

@@ -1,14 +1,14 @@
 require 'test_helper'
 
-describe ObjLoader::SingleIndexedObj do
+describe ObjParser::SingleIndexedObj do
   
   before do
-    @obj = ObjLoader::Obj.new
+    @obj = ObjParser::Obj.new
     @obj.vertice = [p([0.0,0.0,0.0]), p([0.0,0.0,1.0]), p([0.0,1.0,0.0]), p([0.0,1.0,1.0])]
     @obj.vertice_indexes = [0, 1, 2,  0, 2, 3]
     @obj.normals = [p([1.0,0.0,0.0]), p([0.0,1.0,0.0])]
     @obj.normals_indexes = [1, 0, 1,  1, 0, 0]
-    @single_indexed_obj = ObjLoader::SingleIndexedObj.build_with_obj(@obj)
+    @single_indexed_obj = ObjParser::SingleIndexedObj.build_with_obj(@obj)
   end
   
   describe 'compute detailed vertice' do

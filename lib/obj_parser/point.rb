@@ -1,4 +1,4 @@
-module ObjLoader
+module ObjParser
   class Point
     attr_accessor :data
     attr_accessor :current_tangent

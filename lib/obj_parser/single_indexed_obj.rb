@@ -1,6 +1,6 @@
 require 'delegate.rb'
 
-module ObjLoader
+module ObjParser
   class SingleIndexedObj < SimpleDelegator
 
     attr_accessor :detailed_vertice

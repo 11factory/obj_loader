@@ -1,9 +1,9 @@
 require 'test_helper'
 
-describe ObjLoader::Obj do
+describe ObjParser::Obj do
   
   before do
-    @obj = ObjLoader::Obj.new
+    @obj = ObjParser::Obj.new
     @obj.vertice = [p([0.0,0.0,0.0]), p([0.0,0.0,1.0]), p([0.0,1.0,0.0]), p([0.0,1.0,1.0])]
     @obj.vertice_indexes = [0, 1, 2, 1, 2, 3]
     @obj.normals = [p([1.0,0.0,0.0]), p([0.0,1.0,0.0])]
@@ -24,7 +24,7 @@ describe ObjLoader::Obj do
     @obj.compute_tangents
     result = @obj.faces.each_with_index.map do |face, index| 
   		face.vertice.map do |vertex|
-  		  ("%.2f" % ObjLoader::MathUtils::dot(vertex.tangent.data[0..2], vertex.normal.data)).to_f
+  		  ("%.2f" % ObjParser::MathUtils::dot(vertex.tangent.data[0..2], vertex.normal.data)).to_f
   		end.reduce(&:+)
     end.reduce(&:+)
     result.must_equal(0)

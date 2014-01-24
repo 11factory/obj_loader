@@ -5,7 +5,7 @@ require 'obj_parser/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "obj_parser"
-  spec.version       = ObjLoader::VERSION
+  spec.version       = ObjParser::VERSION
   spec.authors       = ["Laurent Cobos"]
   spec.email         = ["laurent@11factory.fr"]
   spec.summary       = %q{3D obj file parser.}

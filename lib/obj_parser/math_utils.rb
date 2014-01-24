@@ -1,6 +1,6 @@
 require 'matrix'
 
-module ObjLoader
+module ObjParser
 
   module MathUtils
       

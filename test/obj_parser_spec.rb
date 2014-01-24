@@ -1,9 +1,10 @@
 require 'test_helper'
+require 'stringio'
 
-describe ObjLoader::ObjParser do
+describe ObjParser::ObjParser do
   
   it "should get obj vertice, normals, textures and indexes" do
-    @parser = ObjLoader::ObjParser.new
+    @parser = ObjParser::ObjParser.new
     obj = @parser.load(StringIO.new(sample_cube_obj))
     obj.vertice.take(3).map(&:data).must_equal([p([0.0,0.0,0.0]), p([0.0,0.0,1.0]), p([0.0,1.0,0.0])].map(&:data))
     obj.normals.count.must_equal(6)
