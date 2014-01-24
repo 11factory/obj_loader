@@ -35,10 +35,10 @@ module ObjParser
     end
     
     def compute_tangents
-      return if textures.count == 0 || normals.count == 0
-      self.resolve_faces
     	self.tangents = []
     	self.tangents_indexes = []
+      return if textures.count == 0 || normals.count == 0
+      self.resolve_faces
     	pindex = 0
     	self.faces.each do |face|
       	pindex += 1
