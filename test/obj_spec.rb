@@ -22,13 +22,24 @@ describe ObjParser::Obj do
   
   it 'compute tangents' do
     @obj.compute_tangents
-    puts @obj.tangents.map(&:data)
     result = @obj.faces.each_with_index.map do |face, index| 
   		face.vertice.map do |vertex|
   		  ("%.2f" % ObjParser::MathUtils::dot(vertex.tangent.data[0..2], vertex.normal.data)).to_f
   		end.reduce(&:+)
     end.reduce(&:+)
     result.must_equal(0)
+  end
+  
+  it 'compute tangents does nothing when normals and textures are defined' do
+    t = @obj.textures
+    @obj.textures = []
+    @obj.compute_tangents
+    @obj.tangents.must_equal([])
+    
+    @obj.textures = t
+    @obj.normals = []
+    @obj.compute_tangents
+    @obj.tangents.must_equal([])
   end
   
 end

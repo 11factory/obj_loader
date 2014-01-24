@@ -11,7 +11,7 @@ describe ObjParser::ObjParser do
     obj.textures.count.must_equal(4)
     obj.vertice_indexes.count.must_equal(36)
     obj.normals_indexes.count.must_equal(36)
-    obj.textures_indexes.count.must_equal(36)    
+    obj.textures_indexes.count.must_equal(36)
   end
 
   private
