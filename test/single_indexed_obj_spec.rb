@@ -8,6 +8,9 @@ describe ObjParser::SingleIndexedObj do
     @obj.vertice_indexes = [0, 1, 2,  0, 2, 3]
     @obj.normals = [p([1.0,0.0,0.0]), p([0.0,1.0,0.0])]
     @obj.normals_indexes = [1, 0, 1,  1, 0, 0]
+    @obj.textures = [p([1.0,0.0,0.0]), p([0.0,1.0,0.0])]
+    @obj.textures_indexes = [1, 0, 1,  1, 0, 0]
+    @obj.compute_tangents
     @single_indexed_obj = ObjParser::SingleIndexedObj.build_with_obj(@obj)
   end
   
@@ -33,7 +36,7 @@ describe ObjParser::SingleIndexedObj do
     it 'reorganize normals, textures, ... based on vertices indexes' do
       @single_indexed_obj.normals.count.must_equal(@obj.vertice_indexes.uniq.count)
       @single_indexed_obj.normals.map(&:data).must_equal(
-        [p([0.0,1.0,0.0]), p([1.0,0.0,0.0]), p([0.0,1.0,0.0]), p([0.0,1.0,0.0]), p([1.0,0.0,0.0]), p([1.0,0.0,0.0])].map(&:data))
+        [p([0.0,1.0,0.0]), p([1.0,0.0,0.0]), p([0.0,1.0,0.0]), p([1.0,0.0,0.0]), p([1.0,0.0,0.0])].map(&:data))
     end
     
   end

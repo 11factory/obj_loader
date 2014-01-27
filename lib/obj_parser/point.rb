@@ -7,12 +7,15 @@ module ObjParser
   
     attr_accessor :normals
     attr_accessor :textures
+    attr_accessor :tangents
+    
     attr_accessor :flag
   
     def initialize(point_data = [0, 0, 0])
       self.data = point_data.map(&:to_f)
       self.textures = []
       self.normals = []
+      self.tangents = []
     end
   
     def tangent

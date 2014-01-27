@@ -28,12 +28,13 @@ module ObjParser
     		vertex = self.detailed_vertice[vertex_index]
     		normal = vertex.normals.select{|n| n == self.normals[self.normals_indexes[index]] }.first
     		texture = vertex.textures.select{|n| n == self.textures[self.textures_indexes[index]] }.first
+        tangent = vertex.tangents.select{|n| n == self.tangents[self.tangents_indexes[index]] }.first
     		if(point_used_for_vertex_at_index?(normal, vertex_index) && point_used_for_vertex_at_index?(texture, vertex_index))
     			candids = texture.flag[vertex_index] & normal.flag[vertex_index]
     			vec_indexes << candids.first
     		else
     			temp_vertice << vertex
-    			temp_tangents << vertex.tangent if vertex.tangent
+          temp_tangents << tangent if tangent
     			vec_indexes << temp_vertice.count - 1
     			if(normal)
     				temp_normals << normal
